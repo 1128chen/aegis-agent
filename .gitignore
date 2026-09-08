@@ -12,4 +12,7 @@ venv/
 .claude/
 cloudflared*.exe
 *.log
+# IDE & scratch (keep evaluation_data/ tracked)
+.idea/
+data/
 
