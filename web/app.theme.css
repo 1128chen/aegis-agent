@@ -1,0 +1,269 @@
+/* ============================================================
+   AegisAgent — visual identity layer
+   Concept: an "Aegis" defense instrument. Deep graphite-blue steel,
+   warm shield-amber for the memorable accent, severity tuned to a
+   signals rail. Quiet, bordered surfaces; no floating-card shadows.
+   Overrides the base skin; safe to delete to restore defaults.
+   ============================================================ */
+
+:root {
+  --aegis-bg: #0a0f1e;
+  --aegis-bg-2: #0d1526;
+  --aegis-panel: #101a31;
+  --aegis-panel-2: #16233f;
+  --aegis-line: rgba(148, 163, 184, 0.14);
+  --aegis-line-strong: rgba(148, 163, 184, 0.26);
+  --aegis-ink: #e9eefb;
+  --aegis-muted: #9aa7c2;
+  --aegis-faint: #5e6b87;
+  --aegis-amber: #f2a65a;
+  --aegis-amber-soft: rgba(242, 166, 90, 0.14);
+  --aegis-mint: #4fd6a4;
+  --aegis-red: #f2685f;
+  --aegis-blue: #6fb1ff;
+  --aegis-radius: 10px;
+  --aegis-glow: 0 0 0 1px rgba(242, 166, 90, 0.35), 0 8px 40px -18px rgba(242, 166, 90, 0.35);
+}
+
+html { background: var(--aegis-bg); }
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(111, 177, 255, 0.08), transparent 60%),
+    radial-gradient(900px 520px at -10% 110%, rgba(242, 166, 90, 0.06), transparent 55%),
+    var(--aegis-bg);
+  color: var(--aegis-ink);
+}
+
+/* ---- shell / sidebar -------------------------------------- */
+.app-shell { background: transparent; }
+
+.sidebar {
+  background: linear-gradient(180deg, rgba(16, 26, 49, 0.9), rgba(10, 15, 30, 0.6));
+  border-right: 1px solid var(--aegis-line);
+}
+
+.brand {
+  border-bottom: 1px solid var(--aegis-line);
+}
+
+.brand-mark {
+  /* hex shield */
+  background: conic-gradient(from 210deg, #2b3f66, #1a2948, #2b3f66);
+  color: var(--aegis-amber);
+  border: 1px solid rgba(242, 166, 90, 0.35);
+  clip-path: polygon(50% 0, 93% 25%, 93% 72%, 50% 100%, 7% 72%, 7% 25%);
+  box-shadow: inset 0 0 0 1px rgba(242, 166, 90, 0.18);
+}
+
+.brand-copy small { color: var(--aegis-faint); }
+
+.nav-item { color: var(--aegis-muted); border-radius: 8px; }
+.nav-item:hover { color: var(--aegis-ink); background: rgba(148, 163, 184, 0.07); }
+.nav-item.active {
+  background: var(--aegis-amber-soft);
+  color: var(--aegis-amber);
+  box-shadow: inset 2px 0 0 var(--aegis-amber);
+}
+
+.sidebar-foot .live-dot {
+  background: var(--aegis-mint);
+  box-shadow: 0 0 0 0 rgba(79, 214, 164, 0.5);
+  animation: aegis-pulse 2.4s ease-out infinite;
+}
+@keyframes aegis-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(79, 214, 164, 0.45); }
+  70% { box-shadow: 0 0 0 7px rgba(79, 214, 164, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(79, 214, 164, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .sidebar-foot .live-dot { animation: none; } }
+
+/* ---- topbar ------------------------------------------------ */
+.topbar {
+  background: rgba(10, 15, 30, 0.6);
+  border-bottom: 1px solid var(--aegis-line);
+  backdrop-filter: blur(6px);
+}
+.topbar h1 { color: var(--aegis-ink); }
+.avatar {
+  background: linear-gradient(135deg, #2b3f66, #16233f);
+  color: var(--aegis-amber);
+  border: 1px solid var(--aegis-line-strong);
+}
+
+/* ---- panels ------------------------------------------------- */
+.panel {
+  background: linear-gradient(180deg, rgba(22, 35, 63, 0.5), rgba(16, 26, 49, 0.55));
+  border: 1px solid var(--aegis-line);
+  border-radius: var(--aegis-radius);
+  box-shadow: none;
+}
+.panel-head h3 { color: var(--aegis-ink); }
+.muted { color: var(--aegis-faint); }
+
+/* ---- hero: the shield moment ------------------------------- */
+.hero {
+  border: 1px solid var(--aegis-line);
+  background:
+    linear-gradient(135deg, rgba(43, 63, 102, 0.18), transparent 60%),
+    rgba(16, 26, 49, 0.35);
+  border-radius: 12px;
+}
+.hero-copy h2 em {
+  font-style: normal;
+  color: var(--aegis-amber);
+}
+.hero-copy p { color: var(--aegis-muted); }
+
+.hero-visual { position: relative; min-height: 220px; }
+.aegis-shield {
+  width: 150px; height: 178px;
+  margin: auto;
+  position: relative;
+  filter: drop-shadow(0 10px 34px rgba(242, 166, 90, 0.22));
+}
+.aegis-shield .plate {
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  clip-path: polygon(50% 0, 96% 22%, 96% 70%, 50% 100%, 4% 70%, 4% 22%);
+  background:
+    radial-gradient(80% 60% at 50% 20%, rgba(242, 166, 90, 0.16), transparent 70%),
+    linear-gradient(180deg, #1e3052, #101a31);
+  border: 1px solid rgba(242, 166, 90, 0.4);
+}
+.aegis-shield .plate::after {
+  content: "";
+  position: absolute; inset: 8px;
+  clip-path: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+.aegis-shield .mono {
+  font-size: 44px; font-weight: 700;
+  color: var(--aegis-amber);
+  letter-spacing: -1px;
+}
+.aegis-shield .ring {
+  position: absolute; inset: -14px;
+  border: 1px dashed rgba(242, 166, 90, 0.28);
+  border-radius: 50%;
+  animation: aegis-spin 42s linear infinite;
+  opacity: 0.7;
+}
+.aegis-shield .orbit-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; }
+.aegis-shield .orbit-dot.a { background: var(--aegis-blue); top: 6px; left: 40px; box-shadow: 0 0 12px rgba(111,177,255,.8); }
+.aegis-shield .orbit-dot.b { background: var(--aegis-amber); bottom: 2px; right: 26px; box-shadow: 0 0 12px rgba(242,166,90,.8); }
+.aegis-shield .orbit-dot.c { background: var(--aegis-mint); bottom: 30px; left: 4px; box-shadow: 0 0 12px rgba(79,214,164,.8); }
+.aegis-shield .caption {
+  position: absolute; inset: auto 0 -26px; text-align: center;
+  font-size: 11px; letter-spacing: 3px; color: var(--aegis-faint);
+  text-transform: none;
+}
+@keyframes aegis-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .aegis-shield .ring { animation: none; } }
+
+/* ---- stats / numbers --------------------------------------- */
+.stat {
+  background: rgba(16, 26, 49, 0.6);
+  border: 1px solid var(--aegis-line);
+  border-radius: var(--aegis-radius);
+  border-top: 2px solid var(--aegis-line-strong);
+}
+.stat b { color: var(--aegis-ink); }
+.stat small { color: var(--aegis-faint); }
+.stat.success { border-top-color: var(--aegis-mint); }
+.stat.failed { border-top-color: var(--aegis-red); }
+.stat.rate { border-top-color: var(--aegis-amber); }
+
+/* ---- task rows / states ------------------------------------- */
+.task-row {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+.task-row:hover { background: rgba(148, 163, 184, 0.06); }
+.task-glyph {
+  background: #1b2a47;
+  color: var(--aegis-blue);
+  border: 1px solid var(--aegis-line);
+}
+.task-name { color: var(--aegis-ink); }
+.task-meta { color: var(--aegis-faint); }
+
+.status { border-radius: 999px; font-weight: 600; }
+.state-success { color: var(--aegis-mint); border-color: rgba(79, 214, 164, 0.35); background: rgba(79,214,164,.08); }
+.state-pending { color: var(--aegis-amber); border-color: rgba(242,166,90,.35); background: rgba(242,166,90,.08); }
+.state-failed { color: var(--aegis-red); border-color: rgba(242,104,95,.35); background: rgba(242,104,95,.08); }
+
+/* ---- buttons ------------------------------------------------- */
+.button {
+  background: #1b2a47;
+  color: var(--aegis-ink);
+  border: 1px solid var(--aegis-line-strong);
+  border-radius: 8px;
+}
+.button:hover { background: #24385c; }
+.button.accent {
+  background: linear-gradient(180deg, #f2a65a, #d9853b);
+  color: #171207;
+  border: 1px solid transparent;
+  box-shadow: 0 6px 18px -8px rgba(242, 166, 90, 0.55);
+}
+.button.accent:hover { filter: brightness(1.05); }
+.button.danger { color: var(--aegis-red); border-color: rgba(242, 104, 95, 0.35); background: rgba(242,104,95,.08); }
+.button:focus-visible, .link-button:focus-visible, .nav-item:focus-visible {
+  outline: 2px solid var(--aegis-amber);
+  outline-offset: 2px;
+}
+
+/* ---- forms --------------------------------------------------- */
+input, textarea, select {
+  background: #0b1224;
+  color: var(--aegis-ink);
+  border: 1px solid var(--aegis-line-strong);
+  border-radius: 8px;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--aegis-amber);
+  box-shadow: 0 0 0 3px rgba(242, 166, 90, 0.16);
+}
+::placeholder { color: var(--aegis-faint); }
+.check input:checked { accent-color: var(--aegis-amber); }
+.optional { color: var(--aegis-faint); }
+
+/* ---- report / output ---------------------------------------- */
+pre, #task-report, .result, .fw-output {
+  color: #d7e0f3;
+  font-family: "Cascadia Code", "Consolas", "SF Mono", monospace;
+}
+#task-report, .result, .fw-output, .empty-state, #evolution-status {
+  background: rgba(8, 12, 22, 0.5);
+  border: 1px solid var(--aegis-line);
+  border-radius: 8px;
+}
+.empty-state b { color: var(--aegis-ink); }
+
+/* ---- labels / flywheel / governance / experience chips ------ */
+.label-finding { background: rgba(11, 18, 36, 0.4); border-color: var(--aegis-line); }
+.chip.ai { color: var(--aegis-blue); border-color: rgba(111,177,255,.35); }
+.chip.sev { color: var(--aegis-amber); border-color: rgba(242,166,90,.35); }
+.chip.label-accept { color: var(--aegis-mint); }
+.chip.label-reject { color: var(--aegis-red); }
+.status-online i { background: var(--aegis-mint); }
+.feedback-history .list-section-label { color: var(--aegis-faint); }
+
+/* ---- flow / agent chain -------------------------------------- */
+.agent-step { border-color: var(--aegis-line); background: rgba(16,26,49,.4); }
+.agent-step strong { color: var(--aegis-ink); }
+.agent-step small { color: var(--aegis-muted); }
+.agent-step.is-active { border-color: rgba(242,166,90,.45); }
+.flow-line { border-color: var(--aegis-line); }
+
+/* ---- scrollbars (webkit) ------------------------------------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #243150; border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+@media (max-width: 720px) {
+  .aegis-shield { transform: scale(0.8); }
+}

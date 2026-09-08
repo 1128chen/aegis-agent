@@ -1,0 +1,19 @@
+E..............................................Overriding of current TracerProvider is not allowed
+...........................................Overriding of current TracerProvider is not allowed
+......................Overriding of current TracerProvider is not allowed
+.Overriding of current TracerProvider is not allowed
+.Overriding of current TracerProvider is not allowed
+.Overriding of current TracerProvider is not allowed
+.......
+======================================================================
+ERROR: test_async_multi_agent_review (test_advanced.AdvancedFeatureTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\agent_dev\EvoAgent\tests\test_advanced.py", line 30, in tearDown
+    os.unlink(self.path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\tmpkbsthrw4.db'
+
+----------------------------------------------------------------------
+Ran 122 tests in 61.029s
+
+FAILED (errors=1)

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.db
+.env
+.pytest_cache/
+# flywheel training outputs (weights / adapters / loss logs)
+artifacts/
+# generated dataset manifests / runtime databases (keep evaluation_data/ tracked)
+data/sft/
+# local virtualenv & tooling
+venv/
+.claude/
+cloudflared*.exe
+*.log
+
